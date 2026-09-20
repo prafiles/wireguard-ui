@@ -1,5 +1,5 @@
 # Build stage
-FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.17-alpine3.16 as builder
+FROM --platform=${BUILDPLATFORM:-linux/amd64} golang:1.26-alpine3.23 as builder
 LABEL maintainer="Khanh Ngo <k@ndk.name>"
 
 ARG BUILDPLATFORM

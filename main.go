@@ -24,7 +24,7 @@ var (
 	appVersion = "development"
 	gitCommit  = "N/A"
 	gitRef     = "N/A"
-	buildTime  = fmt.Sprintf(time.Now().UTC().Format("01-02-2006 15:04:05"))
+	buildTime  = time.Now().UTC().Format("01-02-2006 15:04:05")
 	// configuration variables
 	flagDisableLogin   bool   = false
 	flagBindAddress    string = "0.0.0.0:5000"
@@ -205,7 +205,7 @@ func main() {
 func initServerConfig(db store.IStore, tmplDir fs.FS) {
 	settings, err := db.GetGlobalSettings()
 	if err != nil {
-		log.Fatalf("Cannot get global settings: ", err)
+		log.Fatalf("Cannot get global settings: %v", err)
 	}
 
 	if _, err := os.Stat(settings.ConfigFilePath); err == nil {
@@ -215,22 +215,22 @@ func initServerConfig(db store.IStore, tmplDir fs.FS) {
 
 	server, err := db.GetServer()
 	if err != nil {
-		log.Fatalf("Cannot get server config: ", err)
+		log.Fatalf("Cannot get server config: %v", err)
 	}
 
 	clients, err := db.GetClients(false)
 	if err != nil {
-		log.Fatalf("Cannot get client config: ", err)
+		log.Fatalf("Cannot get client config: %v", err)
 	}
 
 	users, err := db.GetUsers()
 	if err != nil {
-		log.Fatalf("Cannot get user config: ", err)
+		log.Fatalf("Cannot get user config: %v", err)
 	}
 
 	// write config file
 	err = util.WriteWireGuardServerConfig(tmplDir, server, clients, users, settings)
 	if err != nil {
-		log.Fatalf("Cannot create server config: ", err)
+		log.Fatalf("Cannot create server config: %v", err)
 	}
 }

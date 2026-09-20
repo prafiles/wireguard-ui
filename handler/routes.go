@@ -501,14 +501,14 @@ func EmailClient(db store.IStore, mailer emailer.Emailer, emailSubject, emailCon
 		globalSettings, _ := db.GetGlobalSettings()
 		config := util.BuildClientConfig(*clientData.Client, server, globalSettings)
 
-		cfgAtt := emailer.Attachment{"wg0.conf", []byte(config)}
+		cfgAtt := emailer.Attachment{Name: "wg0.conf", Data: []byte(config)}
 		var attachments []emailer.Attachment
 		if clientData.Client.PrivateKey != "" {
 			qrdata, err := base64.StdEncoding.DecodeString(strings.TrimPrefix(clientData.QRCode, "data:image/png;base64,"))
 			if err != nil {
 				return c.JSON(http.StatusInternalServerError, jsonHTTPResponse{false, "decoding: " + err.Error()})
 			}
-			qrAtt := emailer.Attachment{"wg.png", qrdata}
+			qrAtt := emailer.Attachment{Name: "wg.png", Data: qrdata}
 			attachments = []emailer.Attachment{cfgAtt, qrAtt}
 		} else {
 			attachments = []emailer.Attachment{cfgAtt}
