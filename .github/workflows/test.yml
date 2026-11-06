@@ -34,3 +34,22 @@ jobs:
         with:
           name: coverage
           path: coverage.out
+
+  docker-build:
+    name: Build container image
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Build-only check: the publish workflow (docker-build.yml) owns pushing.
+      - name: Build image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: false
+          tags: wireguard-ui:ci
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
