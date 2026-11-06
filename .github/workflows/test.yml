@@ -20,11 +20,13 @@ jobs:
           go-version-file: go.mod
           cache: true
 
+      # The root package embeds yarn-generated assets (gitignored), so it only
+      # compiles after the UI build; the docker-build job below covers it.
       - name: Vet
-        run: go vet ./...
+        run: go vet ./emailer/... ./handler/... ./model/... ./router/... ./store/... ./util/...
 
       - name: Test with coverage
-        run: go test ./... -coverprofile=coverage.out -covermode=atomic
+        run: go test ./emailer/... ./handler/... ./model/... ./router/... ./store/... ./util/... -coverprofile=coverage.out -covermode=atomic
 
       - name: Coverage summary
         run: go tool cover -func=coverage.out | tail -1

@@ -9,11 +9,11 @@ build:
 
 # Run the unit test suite with per-package coverage.
 test:
-	go test ./... -cover
+	go test ./emailer/... ./handler/... ./model/... ./router/... ./store/... ./util/... -cover
 
 # Same, but also writes coverage.out (view with: go tool cover -html=coverage.out).
 cover:
-	go test ./... -coverprofile=coverage.out
+	go test ./emailer/... ./handler/... ./model/... ./router/... ./store/... ./util/... -coverprofile=coverage.out
 	go tool cover -func=coverage.out | tail -1
 
 clean:
