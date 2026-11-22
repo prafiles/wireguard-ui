@@ -1063,11 +1063,6 @@ ion-rangeslider@^2.3.1:
   resolved "https://registry.yarnpkg.com/ion-rangeslider/-/ion-rangeslider-2.6.0.tgz#8c28f8568332f44768f51a3ea8bcc94c9bee60de"
   integrity sha512-y/8JBjXizBzb165YnOC1Dc8JqmW2DOWf4KBKBeHeqAgMU1FS1vtd9hy1Qz9bnsD6yNjkqNF93Eur3/TVJxhZcw==
 
-ip@1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/ip/-/ip-1.1.9.tgz#8dfbcc99a754d07f425310b86a99546b1151e396"
-  integrity sha512-cyRxvOEpNHNtchU3Ln9KC/auJgup87llfQpQ+t5ghoC/UhL16SWzbueiCsdTnWmqAWl7LadfuwhlqmtOaqMHdQ==
-
 is-arguments@^1.1.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/is-arguments/-/is-arguments-1.2.0.tgz#ad58c6aecf563b78ef2bf04df540da8f5d7d8e1b"
@@ -1556,10 +1551,10 @@ string_decoder@~1.1.1:
   dependencies:
     safe-buffer "~5.1.0"
 
-summernote@^0.8.20:
-  version "0.8.20"
-  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.8.20.tgz#395905f2cec0aceebc712edc019d91b8ef88f7cf"
-  integrity sha512-W9RhjQjsn+b1s9xiJQgJbCiYGJaDAc9CdEqXo+D13WuStG8lCdtKaO5AiNiSSMJsQJN2EfGSwbBQt+SFE2B8Kw==
+summernote@0.9.1, summernote@^0.8.20:
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/summernote/-/summernote-0.9.1.tgz#28413746eb2eeeca733ac13e36372a0ff2fb093a"
+  integrity sha512-5Hfuey6+N0XIbk8ZpkGEVDmrkRVRHZWKBhw/072i9/TJLaWUKboB+KOyyd6AzDP2CQs1O6or4zRTU8HY30kt4w==
 
 sweetalert2@11.22.4, sweetalert2@^11.4.0:
   version "11.22.4"
